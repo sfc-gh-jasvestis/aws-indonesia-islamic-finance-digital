@@ -9,7 +9,6 @@ Indonesia's 270 million population includes 87% Muslim, yet Islamic banking mark
 ```mermaid
 flowchart LR
     KIN[Kinesis] --> SPS[Snowpipe Streaming]
-    SP --> RAW[RAW Tables]
     SPS --> RAW
     RAW --> DT[Dynamic Tables]
     DT --> ML[ML Functions]
