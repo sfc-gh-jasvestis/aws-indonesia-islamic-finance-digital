@@ -116,11 +116,10 @@ Run all scripts including AWS integration. Deploy QuickSight dashboard from `qui
 ## Business Impact
 
 Industry research and Snowflake customer outcomes:
-- **Indonesia's Islamic banking assets reached Rp 700 trillion (US$45B) in 2023** — [OJK](https://www.ojk.go.id/)
-- **Indonesian digital banking users grew 35% YoY to 120 million in 2023** — [BI](https://www.bi.go.id/)
-- **Islamic banking penetration is only 7% vs OJK target of 15% by 2025** — [OJK](https://www.ojk.go.id/)
-- **Customer churn reduction of 5% can increase banking profits by 25-85%** — [Bain & Company](https://www.bain.com/insights/retaining-customers-is-the-real-challenge/)
-
+- **Indonesia's Islamic finance assets reached $120B in 2024 — world's largest Muslim population (275M) drives demand** — [OJK Indonesia](https://www.ojk.go.id/en/kanal/perbankan/data-dan-statistik/Pages/Islamic-Banking-Statistics.aspx)
+- **Islamic fintech transaction volume grew 40% YoY to $3.2B — Alami, Ammana, and LinkAja Syariah leading** — [OJK Fintech Statistics](https://www.ojk.go.id/en/kanal/iknb/data-dan-statistik/fintech/Pages/default.aspx)
+- **Digital Islamic banking penetration is only 12% vs 35% for conventional — $50B addressable gap** — [McKinsey Islamic Finance](https://www.mckinsey.com/industries/financial-services/our-insights/islamic-finance)
+- **Bank Syariah Indonesia (BSI) — world's 7th largest Islamic bank — invested in digital transformation with cloud analytics** — [BSI Annual Report](https://ir.bankbsi.co.id/)
 
 ## Key Demo Numbers
 
