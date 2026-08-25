@@ -119,7 +119,7 @@ Industry research and Snowflake customer outcomes:
 - **Indonesia's Islamic finance assets reached $120B in 2024 — world's largest Muslim population (275M) drives demand** — [OJK Indonesia](https://www.ojk.go.id/en/kanal/perbankan/data-dan-statistik/Pages/Islamic-Banking-Statistics.aspx)
 - **Islamic fintech transaction volume grew 40% YoY to $3.2B — Alami, Ammana, and LinkAja Syariah leading** — [OJK Fintech Statistics](https://www.ojk.go.id/en/kanal/iknb/data-dan-statistik/fintech/Pages/default.aspx)
 - **Digital Islamic banking penetration is only 12% vs 35% for conventional — $50B addressable gap** — [McKinsey Islamic Finance](https://www.mckinsey.com/industries/financial-services/our-insights/islamic-finance)
-- **Bank Syariah Indonesia (BSI) — world's 7th largest Islamic bank — invested in digital transformation with cloud analytics** — [BSI Annual Report](https://ir.bankbsi.co.id/)
+- **Bank Syariah Indonesia (BSI) — world's 7th largest Islamic bank — invested in digital transformation with cloud analytics** — [BSI Annual Report](https://www.bankbsi.co.id/)
 
 ## Key Demo Numbers
 
