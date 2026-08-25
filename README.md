@@ -120,6 +120,7 @@ Industry research and Snowflake customer outcomes:
 - **Islamic fintech transaction volume grew 40% YoY to $3.2B — Alami, Ammana, and LinkAja Syariah leading** — [OJK Fintech Statistics](https://www.ojk.go.id/en/kanal/iknb/data-dan-statistik/fintech/Pages/default.aspx)
 - **Digital Islamic banking penetration is only 12% vs 35% for conventional — $50B addressable gap** — [McKinsey Islamic Finance](https://www.mckinsey.com/industries/financial-services/our-insights/islamic-finance)
 - **Bank Syariah Indonesia (BSI) — world's 7th largest Islamic bank — invested in digital transformation with cloud analytics** — [BSI Annual Report](https://www.bankbsi.co.id/)
+- **Western Union** (Snowflake customer): processes 1B+ cross-border transactions on Snowflake with real-time compliance monitoring across 200+ countries -- [snowflake.com/customers/western-union](https://www.snowflake.com/en/customers/all-customers/case-study/western-union/)
 
 ## Key Demo Numbers
 
