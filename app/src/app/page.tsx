@@ -35,36 +35,36 @@ export default function HomePage() {
   const executiveCockpit = (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <KPICard title="Total Value at Risk" value="Loading..." status="danger" />
-        <KPICard title="Critical Entities" value="—" status="warning" />
-        <KPICard title="Anomalies Detected" value="—" status="warning" />
-        <KPICard title="Documents Indexed" value="—" status="neutral" />
+        <KPICard title="Digital Islamic AUM" value="Rp 8.4T" status="neutral" />
+        <KPICard title="Active Users" value="2.1M" status="neutral" />
+        <KPICard title="Shariah Compliance" value="100%" status="neutral" />
+        <KPICard title="Products Launched" value="12" status="neutral" />
       </div>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <Chart
           data={data?.timeseries || [{ period: 'Loading', value: 0 }]}
           type="line"
           xKey="period"
-          yKeys={[{ key: 'value', name: 'Value' }]}
-          title="Performance Trend"
+          yKeys={[{ key: 'value', name: 'Users (K)' }]}
+          title="Digital Islamic Product Growth"
         />
         <Chart
           data={data?.categories || [{ category: 'Loading', count: 0 }]}
           type="bar"
           xKey="category"
-          yKeys={[{ key: 'count', name: 'Count' }]}
-          title="Category Distribution"
+          yKeys={[{ key: 'count', name: 'Rp T' }]}
+          title="AUM by Product Type"
         />
       </div>
       <DataTable
         columns={[
-          { key: 'id', header: 'ID' },
-          { key: 'name', header: 'Name' },
-          { key: 'status', header: 'Status' },
-          { key: 'value', header: 'Value' },
+          { key: 'id', header: '#' },
+          { key: 'name', header: 'Product' },
+          { key: 'status', header: 'Compliance' },
+          { key: 'value', header: 'AUM (Rp B)' },
         ]}
         data={data?.entities || []}
-        title="Entity Health"
+        title="Product Performance"
       />
     </div>
   );
@@ -72,16 +72,16 @@ export default function HomePage() {
   const domainTab1 = (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <KPICard title="Primary Metric" value="—" />
-        <KPICard title="Secondary Metric" value="—" />
-        <KPICard title="Tertiary Metric" value="—" />
+        <KPICard title="App DAU" value="840K" />
+        <KPICard title="Conversion Rate" value="14%" />
+        <KPICard title="Avg Investment" value="Rp 4.8M" />
       </div>
       <Chart
         data={data?.detail || [{ x: 'Loading', y: 0 }]}
         type="area"
         xKey="x"
-        yKeys={[{ key: 'y', name: 'Metric' }]}
-        title="Detailed Analytics"
+        yKeys={[{ key: 'y', name: 'Users' }]}
+        title="User Acquisition by Channel"
         height={400}
       />
     </div>
@@ -94,17 +94,17 @@ export default function HomePage() {
           data={data?.breakdown || [{ label: 'A', value: 30 }, { label: 'B', value: 70 }]}
           type="pie"
           xKey="label"
-          yKeys={[{ key: 'value', name: 'Value' }]}
-          title="Breakdown"
+          yKeys={[{ key: 'value', name: 'Score' }]}
+          title="Shariah Audit Score"
         />
         <ActionMemo
-          persona={{ name: 'Analyst', role: 'Operations' }}
+          persona={{ name: 'Ustadz Ahmad Fauzi', role: 'Shariah Compliance Head' }}
           context={{}}
           onGenerate={async () => ({
             subject: 'Action Required',
-            body: 'AI-generated recommendation based on current data.',
+            body: 'AI-generated recommendation based on current data patterns and predicted trends.',
             urgency: 'HIGH',
-            actions: ['Review anomalies', 'Escalate to management', 'Schedule intervention'],
+            actions: ['Review new robo-advisory algorithm for Shariah compliance', 'Prepare DSN-MUI quarterly certification', 'Launch halal investment education campaign'],
           })}
         />
       </div>
@@ -116,13 +116,12 @@ export default function HomePage() {
       <AskAI
         title="Ask AI"
         sampleQuestions={[
-          'What is the current status?',
-          'Which entities are at highest risk?',
-          'Show me the trend for the last 30 days',
+          'Which digital Islamic products have highest growth?',
+          'Show user demographics by product type',
+          'What is the Shariah compliance audit status?',
         ]}
         mode="both"
         onSubmit={async (question, mode) => {
-          // In production, this calls the Snowflake API route
           return {
             answer: `[Demo Mode] Response to: "${question}" (${mode} mode). Connect to Snowflake for live data.`,
             sql: mode === 'sql' ? 'SELECT * FROM CURATED.SUMMARY LIMIT 10;' : undefined,
@@ -179,8 +178,8 @@ export default function HomePage() {
 
   const tabs = [
     { id: 'executive-cockpit', label: 'Executive Cockpit', icon: '📊', content: executiveCockpit },
-    { id: 'domain-1', label: 'Analytics', icon: '📈', content: domainTab1 },
-    { id: 'domain-2', label: 'Actions', icon: '⚡', content: domainTab2 },
+    { id: 'domain-1', label: 'User Analytics', icon: '📈', content: domainTab1 },
+    { id: 'domain-2', label: 'Compliance', icon: '⚡', content: domainTab2 },
     { id: 'ask-ai', label: 'Ask AI', icon: '🤖', content: askAiTab },
     { id: 'architecture', label: 'Architecture & Data', icon: '🏗️', content: architectureTab },
   ];
