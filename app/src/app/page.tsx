@@ -32,15 +32,23 @@ export default function HomePage() {
       .catch(() => {});
   }, []);
 
+
+  // Look up a KPI value returned by /api/data (sourced from CURATED.KPI_SUMMARY).
+  // Falls back to the original literal so the card still renders if the API,
+  // or KPI_SUMMARY, is unavailable.
+  const kpiVal = (title: string, fallback: string): string =>
+    (data?.kpiCards as { title: string; value: string }[] | undefined)
+      ?.find((k) => k.title === title)?.value ?? fallback;
+
   const title = narrative?.title || 'SEA AWS Demo';
 
   const executiveCockpit = (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <KPICard title="Digital Islamic AUM" value="Rp 8.4T" status="neutral" />
-        <KPICard title="Active Users" value="2.1M" status="neutral" />
-        <KPICard title="Shariah Compliance" value="100%" status="neutral" />
-        <KPICard title="Products Launched" value="12" status="neutral" />
+        <KPICard title="Digital Islamic AUM" value={kpiVal('Digital Islamic AUM', 'Rp 8.4T')} status="neutral" />
+        <KPICard title="Active Users" value={kpiVal('Active Users', '2.1M')} status="neutral" />
+        <KPICard title="Shariah Compliance" value={kpiVal('Shariah Compliance', '100%')} status="neutral" />
+        <KPICard title="Products Launched" value={kpiVal('Products Launched', '12')} status="neutral" />
       </div>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="lg:col-span-1">
@@ -87,9 +95,9 @@ export default function HomePage() {
   const domainTab1 = (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <KPICard title="App DAU" value="840K" />
-        <KPICard title="Conversion Rate" value="14%" />
-        <KPICard title="Avg Investment" value="Rp 4.8M" />
+        <KPICard title="App DAU" value={kpiVal('App DAU', '840K')} />
+        <KPICard title="Conversion Rate" value={kpiVal('Conversion Rate', '14%')} />
+        <KPICard title="Avg Investment" value={kpiVal('Avg Investment', 'Rp 4.8M')} />
       </div>
       <Chart
         data={data?.detail || [{ x: 'Mon', y: 24 }, { x: 'Tue', y: 28 }, { x: 'Wed', y: 22 }, { x: 'Thu', y: 31 }, { x: 'Fri', y: 26 }, { x: 'Sat', y: 19 }, { x: 'Sun', y: 23 }]}
