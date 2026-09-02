@@ -1,106 +1,79 @@
-# Demo Script: Digital Islamic Banking
-## ~4-Minute Recorded Walkthrough
-**Format**: Screen recording with voiceover
-**Target**: Customer meeting / booth loop / social share
-**Narrative**: "Snowflake powers digital Islamic banking analytics — Dynamic Tables maintain real-time customer profiles, ML.FORECAST projects deposit trajectories, and Cortex AI personalizes Shariah-compliant product recommendations at scale"
-**Demo Mode**: Open app with `?demo=true` for presenter notes
+# Digital Islamic Banking
 
----
+**Indonesia - Islamic Finance**
+Use case: Digital Banking Analytics
 
-## Two Personas
+> Customer analytics for Indonesia's digital Islamic banking revolution — ML.FORECAST predicts deposit growth, Dynamic Tables build real-time customer 360 views, and Cortex AI generates personalized product recommendations.
 
-| Persona | Role | Tool | What they care about |
-|---|---|---|---|
-| **Andi Rachman** | Chief Digital Officer | React App (SPCS) | Digital adoption, customer acquisition cost, deposit growth, app engagement metrics |
-| **Nur Aini** | Data Analytics Manager | Amazon QuickSight | Churn prediction, product cross-sell, customer segmentation, campaign ROI |
+## Why Snowflake
 
----
+Snowflake powers digital Islamic banking analytics — Dynamic Tables maintain real-time customer profiles, ML.FORECAST projects deposit trajectories, and Cortex AI personalizes Shariah-compliant product recommendations at scale
 
-## What's Built
+- **ML.FORECAST on deposit growth by segment** - Only demo forecasting Islamic banking deposit trajectories by customer cohort
+- **AI-personalized product recommendations** - Cortex AI generates Shariah-compliant product suggestions at customer level
+- **Customer 360 via Dynamic Tables** - Real-time customer profile from 10M+ app events and 5M transactions
+- **Indonesian digital Islamic banking context** - 270M population, 87% Muslim, 66% unbanked — massive untapped market
 
-| Layer | Component | Detail |
+## What is deployed
+
+| | |
+|---|---|
+| Database | `ID_ISLAMIC_FINANCE_DIGITAL` |
+| Service | `ID_ISLAMIC_FINANCE_DIGITAL_APP` |
+| Compute pool | `SEA_DEMOS_INDONESIA_POOL` |
+| Dimension table | `RAW.PRODUCT_DOCS` (20 rows) |
+| Fact table | `RAW.APP_EVENTS` (250,000 rows, 90 days) |
+| Curated layer | `CURATED.PERFORMANCE_SUMMARY`, `CURATED.TREND_ANALYSIS`, `CURATED.KPI_SUMMARY` |
+| Currency | IDR (Rp) |
+
+Regions in play: Jakarta, North Sumatra, Riau, East Kalimantan, Sulawesi
+Segments: Wadiah Savings, Mudharabah Deposit, Hasanah Card, Digital Financing
+
+Dynamic tables are created suspended and refreshed on demand:
+
+```bash
+./refresh_demo_data.sh ID_ISLAMIC_FINANCE_DIGITAL
+```
+
+## KPI cards
+
+Every card below is served live from `CURATED.KPI_SUMMARY`. The app keeps the
+original literal as a fallback, so it still renders if Snowflake is unreachable.
+
+| Card | Value | Backed by |
 |---|---|---|
-| **RAW** | 6 tables | CUSTOMERS (500000), TRANSACTIONS (5000000), DEPOSITS (1000000), APP_EVENTS (10000000), CAMPAIGNS (5000), PRODUCT_DOCS (40) |
-| **CURATED** | 4 Dynamic Tables | CUSTOMER_360, DEPOSIT_GROWTH_METRICS, CHURN_RISK_SCORE, CAMPAIGN_ROI |
-| **ML** | ML.FORECAST | Forecasting + anomaly detection |
-| **AI** | COMPLETE, SUMMARIZE, AI_CLASSIFY | Classification + extraction |
-| **Search** | Cortex Search | 40 documents indexed |
-| **Agent** | DIGITAL_BANKING_AGENT | Semantic View + Search tools |
+| Digital Islamic AUM | `Rp 8.4T` | total across Product Docs |
+| Active Users | `2.1M` | total across Product Docs |
+| Shariah Compliance | `100%` | average per event |
+| Products Launched | `12` | average per event |
+| App DAU | `840K` | total across Product Docs |
+| Conversion Rate | `14%` | average per event |
+| Avg Investment | `Rp 4.8M` | average per event |
 
 
----
+## Demo flow
 
-## The Story
+1. Digital Overview
+2. Customer Intelligence
+3. AI Personalization
+4. Ask AI
+5. Architecture & Data
 
-Indonesia's 270 million population includes 87% Muslim, yet Islamic banking market share is only 7%. A digital Shariah-compliant neobank has acquired 500,000 customers with 42% annual growth, but must now reduce churn among high-value segments and personalize product recommendations to convert savings customers into full-relationship clients — all while maintaining Shariah compliance.
+## Talking points
 
----
+- **500,000 customers** - digital Islamic banking users (42% YoY growth)
+- **Rp 12T deposits** - across Wadiah and Mudharabah products
+- **8,500 at-risk** - high-value customers with elevated churn score
+- **10M app events** - mobile engagement data points
+- **3.2x ROI** - Ramadan campaign performance
 
-## Script
+## Business impact
 
-### [0:00–0:45] DIGITAL OVERVIEW
-
-**Show**: Digital Overview tab
-
-> "500,000 digital Islamic banking customers — 42% growth year-on-year."
-
-**Action**: Point at 500K customers and 42% growth
-
-### [0:45–1:30] CUSTOMER INTELLIGENCE
-
-**Show**: Customer Intelligence tab
-
-> "Young professionals (25-34) driving 60% of new deposit growth."
-
-**Action**: Show deposit growth by segment chart
-
-### [1:30–2:15] AI PERSONALIZATION
-
-**Show**: AI Personalization tab
-
-> "Cortex AI generates personalized product recommendations per customer segment."
-
-**Action**: Show AI recommendation examples
-
-### [2:15–3:00] ASK AI
-
-**Show**: Ask AI tab
-
-> "Andi asks: 'What's our digital customer acquisition rate this month?'"
-
-**Action**: Type acquisition question
-
-### [3:00–3:45] ARCHITECTURE & DATA
-
-**Show**: Architecture & Data tab
-
-> "Six Snowflake capabilities, six AWS services."
-
-**Action**: Walk through architecture diagram
-
+- Indonesia's Islamic banking assets reached Rp 700 trillion (US$45B) in 2023 (OJK)
+- Indonesian digital banking users grew 35% YoY to 120 million in 2023 (BI)
+- Islamic banking penetration is only 7% vs OJK target of 15% by 2025 (OJK)
+- Customer churn reduction of 5% can increase banking profits by 25-85% (Bain & Company)
 
 ---
-
-## Key Demo Differentiators
-
-1. **ML.FORECAST on deposit growth by segment** — Only demo forecasting Islamic banking deposit trajectories by customer cohort
-2. **AI-personalized product recommendations** — Cortex AI generates Shariah-compliant product suggestions at customer level
-3. **Customer 360 via Dynamic Tables** — Real-time customer profile from 10M+ app events and 5M transactions
-4. **Indonesian digital Islamic banking context** — 270M population, 87% Muslim, 66% unbanked — massive untapped market
-
-
----
-
-## Demo Prep Checklist
-
-### Data Verification
-- [ ] `SELECT COUNT(*) FROM ISLAMIC_DIGITAL_BANKING.RAW.CUSTOMERS` → 500000
-- [ ] `SELECT COUNT(*) FROM ISLAMIC_DIGITAL_BANKING.RAW.TRANSACTIONS` → 5000000
-- [ ] `SELECT COUNT(*) FROM ISLAMIC_DIGITAL_BANKING.RAW.APP_EVENTS` → 10000000
-
-### ML Model Verification
-- [ ] `SELECT COUNT(*) FROM ISLAMIC_DIGITAL_BANKING.ML.DEPOSIT_GROWTH_FORECAST_RESULTS` → >0
-
-### AI/Agent Verification
-- [ ] `SELECT COUNT(*) FROM ISLAMIC_DIGITAL_BANKING.AI.CUSTOMER_CLASSIFICATION` → 500000
-
+Generated from `generator/demo_specs/aws-indonesia-islamic-finance-digital.json`. Do not hand-edit: run
+`python3 generator/gen_repo_docs.py aws-indonesia-islamic-finance-digital` instead.
